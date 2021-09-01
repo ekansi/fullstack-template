@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-        <h1> some header </h1>
+        <h1> Country Search </h1>
         <SearchBar />
         </div>
       </header>

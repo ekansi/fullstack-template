@@ -1,3 +1,6 @@
+/**
+ *      Summary.        Renders the search bar, calls to search functions, passes results to Display section.
+ **/
 import React from 'react';
 import { doSearch } from './utils/search-utils.js';
 import ResultsDisplay from './ResultsDisplay.js';
@@ -8,8 +11,7 @@ class SearchBar extends React.Component {
         this.state = {
             searchType: "partialname",
             searchText: "",
-            data: [],
-            total: 0
+            data: []
         }
     }
 
@@ -27,15 +29,14 @@ class SearchBar extends React.Component {
         }
         else {
             let string = this.state.searchType + "  " + this.state.searchText;
-            doSearch(this.state.searchType, this.state.searchText, true).then( data => {
+            doSearch(this.state.searchType, this.state.searchText).then( data => {
                 if (data) {
                     this.setState({
-                        data: data,
-                        total: data.length
+                        data: data
                     });
                     return data;
                 }
-            });
+            }); //not handling errors but should be
         }
     }
 
@@ -55,7 +56,7 @@ class SearchBar extends React.Component {
                         <option value="countrycode">Country Code</option>
                     </select>
                     <input type="text" value={this.state.searchText} id="myInput" onChange={ev => this.setTextInput(ev)} onKeyDown={ev => this.submitSearchText(ev)} />
-                    <button type="button" onClick={() => this.getSearchResults()}>Search</button>
+                    <button type="button" class="searchbutton" onClick={() => this.getSearchResults()}>Search</button>
                 </div>
                 <div>
                 <ResultsDisplay countries={this.state.data} />

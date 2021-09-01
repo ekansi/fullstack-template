@@ -14,12 +14,17 @@ code {
 
 .country {
     display: flex;
-    align-items:start;
+    align-items:center;
     padding-left: 10px;
+    border-bottom: 1px solid white;
 }
 
 .title {
-    padding-left: 20px;
+}
+
+.subtitle {
+    padding-left: 10px;
+    align-items: end;
 }
 
 .country-info {
@@ -33,3 +38,11 @@ code {
     align-items: end;
 }
 
+.searchbutton {
+    margin-left: .5em;
+}
+
+.regions-list {
+    text-align: left;
+    font-size: calc(5px + 1vmin);
+}
